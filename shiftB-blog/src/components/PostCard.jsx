@@ -1,5 +1,4 @@
 import { formatDate } from "../utils/date.js";
-import { contentWithLineBreaks } from "../utils/formatcontent.jsx";
 import "./PostCard.css";
 
 const PostCard = ({ post }) => (
@@ -8,19 +7,17 @@ const PostCard = ({ post }) => (
       <div className="post-header flex justify-between items-center">
         <time dateTime={post.createdAt}>{formatDate(post.createdAt)}</time>
         <div className="categories text-sm flex gap-2">
-          <button>React</button>
-          <button>TypeScript</button>
+          {post.categories.map((category) => (
+            <button key={category}>{category}</button>
+          ))}
         </div>
       </div>
       <h2 className="text-2xl">APIで取得した{post.title}</h2>
-      <p className="line-clamp-2">{contentWithLineBreaks(post.content)}</p>
+      <div
+        className="line-clamp-2"
+        dangerouslySetInnerHTML={{ __html: post.content }}
+      />
     </div>
   </article>
 );
 export default PostCard;
-
-{
-  /* <p className="post-content line-clamp-2 w-[70%]">
-  {post.content.replace(/<br\s*\/?>/gi, '\n')}
-</p> */
-}
