@@ -10,9 +10,7 @@ import PostCard from "./components/PostCard.jsx";
 function App() {
   return (
     <>
-      <header>
-        <Header />
-      </header>
+      <Header />
 
       <main className="main">
         {posts.map((post) => (
