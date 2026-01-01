@@ -1,0 +1,17 @@
+.header {
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  /* padding: 12px 16px; */
+}
+.header-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+.header-nav {
+  font-weight: bold;
+  display: flex;
+  gap: 16px;
+}
