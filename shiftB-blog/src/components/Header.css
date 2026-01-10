@@ -9,6 +9,11 @@
 .header-title {
   font-size: 20px;
   font-weight: bold;
+  color: white;
+}
+.header.header-title:hover {
+  color: black;
+  text-decoration: none;
 }
 .header-nav {
   font-weight: bold;
