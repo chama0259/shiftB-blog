@@ -1,13 +1,13 @@
-import "./Header.css";
+import classes from "./Header.module.css";
 import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="header">
-      <Link to="/" className="header-title">
+    <header className={classes.header}>
+      <Link to="/" className={classes.headerLink}>
         Blog
       </Link>
-      <div className="header-nav">お問い合わせ</div>
+      <div className={classes.headerLink}>お問い合わせ</div>
     </header>
   );
 };
