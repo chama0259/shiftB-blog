@@ -11,17 +11,24 @@ const PostDetail = ({ posts }) => {
 
   return (
     <>
-      <article className="post-inner flex flex-col gap-4">
+      <article className="flex flex-col gap-4">
         <img
           src={post.thumbnailUrl}
           alt={post.title}
           className="w-full h-auto"
         />
-        <div className="post-header flex justify-between items-center">
-          <time dateTime={post.createdAt}>{formatDate(post.createdAt)}</time>
-          <div className="categories text-sm flex gap-2">
+        <div className="flex justify-between items-center">
+          <time dateTime={post.createdAt} className="text-gray-400">
+            {formatDate(post.createdAt)}
+          </time>
+          <div className="text-sm flex gap-2">
             {post.categories.map((category) => (
-              <button key={category}>{category}</button>
+              <span
+                key={category}
+                className="border border-blue-500 text-blue-500 px-2 py-0.5 rounded"
+              >
+                {category}
+              </span>
             ))}
           </div>
         </div>
