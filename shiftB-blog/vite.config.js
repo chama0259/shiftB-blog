@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 //ファストリフレッシュ対応
-import react from '@vitejs/plugin-react-swc'
+import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
