@@ -7,7 +7,9 @@ const Header = () => {
       <Link to="/" className={classes.headerLink}>
         Blog
       </Link>
-      <div className={classes.headerLink}>お問い合わせ</div>
+      <Link to="contact">
+        <div className={classes.headerLink}>お問い合わせ</div>
+      </Link>
     </header>
   );
 };
