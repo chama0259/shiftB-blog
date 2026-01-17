@@ -4,12 +4,18 @@ const ContactForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [isSubmitting, setisSubmitting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState({
     name: "",
     email: "",
     message: "",
   });
+  const reset = () => {
+    setName("");
+    setEmail("");
+    setMessage("");
+    setErrors({ name: "", email: "", message: "" });
+  };
 
   const handleSubmit = async (e) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // メール形式のパターン
@@ -50,7 +56,7 @@ const ContactForm = () => {
 
     if (hasError) return;
 
-    setisSubmitting(true);
+    setIsSubmitting(true);
     try {
       const response = await fetch(
         "https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/contacts",
@@ -62,16 +68,14 @@ const ContactForm = () => {
       );
       if (response.ok) {
         alert("送信しました");
-        setName("");
-        setEmail("");
-        setMessage("");
+        reset();
       } else {
         alert("送信に失敗しました");
       }
     } catch (error) {
       alert("通信エラーが発生しました");
     } finally {
-      setisSubmitting(false);
+      setIsSubmitting(false);
     }
   };
 
@@ -148,12 +152,7 @@ const ContactForm = () => {
             {isSubmitting ? "送信中..." : "送信"}
           </button>
           <button
-            onClick={() => {
-              setName("");
-              setEmail("");
-              setMessage("");
-              setErrors({ name: "", email: "", message: "" });
-            }}
+            onClick={reset}
             disabled={isSubmitting}
             type="reset"
             className="px-5 py-2.5 bg-gray-200 text-black font-bold rounded-lg hover:bg-gray-300"
